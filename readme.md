@@ -1,7 +1,18 @@
 # atividade-desenvolvimento-web
-SELOEDU - API de Gerenciamento de Usuários
-Este projeto é uma API construída em FastAPI para o gerenciamento inicial de usuários da aplicação SELOEDU, conforme especificado na atividade.
+SELOEDU 
+Este projeto foi construido usando Python e FastAPI, para  a implementação inicial, conforme especificado na atividade.
+```
+Nesta atividade, você irá implementar as rotas iniciais da aplicação SELOEDU, iniciaremos  pelo gerenciamento de usuários.
 
+A estrutura da tabela deve seguir a definição:        users = [{"id": "id","nome": "nome","email": "email", "perfil": "perfil","status": "status"}]
+
+GET /                                      Retorna uma mensagem de boas-vindas.
+GET /todos                            Lista todos os usuários.
+GET /id_user/{id}                  Retorna usuário pelo ID ou erro se não encontrado.
+POST /add_user                    Adiciona um novo usuário.
+DELETE /delete_user/{id}    Remove usuário pelo ID.
+PUT /update_user/{id}         Atualiza os dados de um usuário existente.
+```
 ---
 Atividade: Implementação das rotas de Usuários - Prof° **Jose Mauricio Matapi da Silva** [LinkedIn]()
 
