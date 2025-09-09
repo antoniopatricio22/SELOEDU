@@ -17,7 +17,7 @@ PUT /update_user/{id}         Atualiza os dados de um usuário existente.
 Atividade: Implementação das rotas de Usuários - Prof° **Jose Mauricio Matapi da Silva** [LinkedIn]()
 
 
-#Como rodar o projeto
+# Como rodar o projeto
 
 Clone este repositório:
 
@@ -26,7 +26,7 @@ git clone https://github.com/<SEU_USUARIO>/seloedu-api.git
 cd seloedu-api
 ```
 
-#Crie e ative um ambiente virtual:
+# Crie e ative um ambiente virtual:
 
 ```
 python -m venv aula
@@ -36,13 +36,13 @@ source aula/bin/activate
 aula\Scripts\activate
 ```
 
-#Instale as dependências:
+# Instale as dependências:
 
 ```
 pip install -r requirements.txt
 ```
 
-#Rode o servidor:
+# Rode o servidor:
 
 ```
 uvicorn app:app --reload
@@ -51,7 +51,7 @@ uvicorn app:app --reload
 ---
 
 
-##A API estará disponível em:
+## A API estará disponível em:
  
 http://127.0.0.1:8000
 
