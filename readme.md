@@ -1,21 +1,46 @@
-# atividade-desenvolvimento-web
-SELOEDU 
-Este projeto foi construido usando Python e FastAPI, para  a implementação inicial, conforme especificado na atividade.
+
+## SELOEDU 
+Este projeto foi construido usando Python e Flask, para  a implementação inicial, seguindo o especificado nas atividades.
+---
+
+# 1 atividade-desenvolvimento-web
 ```
 Nesta atividade, você irá implementar as rotas iniciais da aplicação SELOEDU, iniciaremos  pelo gerenciamento de usuários.
 
 A estrutura da tabela deve seguir a definição:        users = [{"id": "id","nome": "nome","email": "email", "perfil": "perfil","status": "status"}]
 
-GET /                                      Retorna uma mensagem de boas-vindas.
-GET /todos                            Lista todos os usuários.
-GET /id_user/{id}                  Retorna usuário pelo ID ou erro se não encontrado.
-POST /add_user                    Adiciona um novo usuário.
-DELETE /delete_user/{id}    Remove usuário pelo ID.
-PUT /update_user/{id}         Atualiza os dados de um usuário existente.
+GET /                           Retorna uma mensagem de boas-vindas.
+GET /users                      Lista todos os usuários.
+GET /id_user/{id}               Retorna usuário pelo ID ou erro se não encontrado.
+POST /add_user                  Adiciona um novo usuário.
+DELETE /delete_user/{id}        Remove usuário pelo ID.
+PUT /update_user/{id}           Atualiza os dados de um usuário existente.
 ```
----
-Atividade: Implementação das rotas de Usuários - Prof° **Jose Mauricio Matapi da Silva** [LinkedIn]()
 
+
+Recife, 09 de Setembro de 2025
+---
+
+# 2 atividade-desenvolvimento-web
+```
+Nesta atividade, você deverá atualizar a aplicação para criar uma nova página users.html que exiba uma tabela com informações dos usuários. O foco é apenas na renderização dos dados, sem estilização nesta etapa. Para isso, siga as orientações:
+
+users = [{"id": id, "nome": "nome", "email": "email", "perfil": "perfil", "status": "status"}]
+Obs: A tabela users deve conter pelo menos 7 registros
+
+SELOEDU/
+ ├── app.py          
+ └── templates/      
+      └── index.html
+Criar o arquivo users.html dentro da pasta templates/.
+Definir no app.py uma rota /users que envie uma lista de dicionários com os usuários.
+Renderizar a tabela no users.html para a exibindo os campos: .
+Manter a organização da estrutura do projeto conforme já trabalhado em sala de aula.
+
+```
+Recife, 11 de Setembro de 2025
+Atividades: Prof° **Jose Mauricio Matapi da Silva** 
+---
 
 # Como rodar o projeto
 
@@ -45,7 +70,8 @@ pip install -r requirements.txt
 # Rode o servidor:
 
 ```
-uvicorn app:app --reload
+python app.py ou
+flask run
 ```
 
 ---
@@ -53,11 +79,9 @@ uvicorn app:app --reload
 
 ## A API estará disponível em:
  
-http://127.0.0.1:8000
+http://127.0.0.1:5000
 
-##E a documentação interativa no Swagger UI:
 
-http://127.0.0.1:8000/docs
 
 
 

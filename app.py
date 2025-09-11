@@ -1,54 +1,58 @@
-from fastapi import FastAPI, HTTPException
+from flask import Flask, render_template, request, jsonify
 
-app = FastAPI(title="SELOEDU")
+app = Flask(__name__)
 
 # Base de dados inicial em memória
 users = [
     {"id": "1", "nome": "Alice", "email": "alice@email.com", "perfil": "admin", "status": "ativo"},
     {"id": "2", "nome": "Bruno", "email": "bruno@email.com", "perfil": "aluno", "status": "inativo"},
+    {"id": "3", "nome": "Carlos", "email": "carlos@email.com", "perfil": "professor", "status": "ativo"},
+    {"id": "4", "nome": "Diana", "email": "diana@email.com", "perfil": "aluno", "status": "ativo"},
+    {"id": "5", "nome": "Eduardo", "email": "eduardo@email.com", "perfil": "admin", "status": "inativo"},
+    {"id": "6", "nome": "Fernanda", "email": "fernanda@email.com", "perfil": "professor", "status": "ativo"},
+    {"id": "7", "nome": "Gabriel", "email": "gabriel@email.com", "perfil": "aluno", "status": "ativo"},
 ]
 
-# Rota raiz
-@app.get("/")
+@app.route("/")
 def welcome():
-    return {"mensagem": "Bem-vindo à API SELOEDU"}
+    return render_template("index.html")
 
-# Listar todos os usuários
-@app.get("/todos")
+@app.route("/users")
 def listar_usuarios():
-    return {"usuarios": users}
+    return render_template("users.html", usuarios=users)
 
-# Buscar usuário por ID
-@app.get("/id_user/{id}")
-def buscar_usuario(id: str):
+@app.route("/id_user/<id>")
+def buscar_usuario(id):
     for user in users:
         if user["id"] == id:
-            return user
-    raise HTTPException(status_code=404, detail="Usuário não encontrado")
+            return jsonify(user)
+    return jsonify({"erro": "Usuário não encontrado"}), 404
 
-# Adicionar usuário
-@app.post("/add_user")
-def adicionar_usuario(user: dict):
+@app.route("/add_user", methods=["POST"])
+def adicionar_usuario():
+    user = request.json
     for u in users:
-        if u["id"] == user["id"]:
-            raise HTTPException(status_code=400, detail="ID já existente")
+        if u["id"] == user.get("id"):
+            return jsonify({"erro": "ID já existente"}), 400
     users.append(user)
-    return {"mensagem": "Usuário adicionado com sucesso", "usuario": user}
+    return jsonify({"mensagem": "Usuário adicionado com sucesso", "usuario": user})
 
-# Deletar usuário
-@app.delete("/delete_user/{id}")
-def deletar_usuario(id: str):
+@app.route("/delete_user/<id>", methods=["DELETE"])
+def deletar_usuario(id):
     for user in users:
         if user["id"] == id:
             users.remove(user)
-            return {"mensagem": "Usuário removido com sucesso"}
-    raise HTTPException(status_code=404, detail="Usuário não encontrado")
+            return jsonify({"mensagem": "Usuário removido com sucesso"})
+    return jsonify({"erro": "Usuário não encontrado"}), 404
 
-# Atualizar usuário
-@app.put("/update_user/{id}")
-def atualizar_usuario(id: str, novo_user: dict):
+@app.route("/update_user/<id>", methods=["PUT"])
+def atualizar_usuario(id):
+    novo_user = request.json
     for index, user in enumerate(users):
         if user["id"] == id:
             users[index].update(novo_user)
-            return {"mensagem": "Usuário atualizado com sucesso", "usuario": users[index]}
-    raise HTTPException(status_code=404, detail="Usuário não encontrado")
+            return jsonify({"mensagem": "Usuário atualizado com sucesso", "usuario": users[index]})
+    return jsonify({"erro": "Usuário não encontrado"}), 404
+
+if __name__ == "__main__":
+    app.run(debug=True)
