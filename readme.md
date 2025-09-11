@@ -39,8 +39,9 @@ Manter a organização da estrutura do projeto conforme já trabalhado em sala d
 
 ```
 Recife, 11 de Setembro de 2025
-Atividades: Prof° **Jose Mauricio Matapi da Silva** 
 ---
+
+Atividades: Prof° **Jose Mauricio Matapi da Silva** 
 
 # Como rodar o projeto
 
