@@ -15,7 +15,11 @@ users = [
 
 @app.route("/")
 def welcome():
-    return render_template("index.html")
+    return render_template("home.html")
+
+@app.route("/login")
+def login():
+    return render_template("auth/login.html")
 
 @app.route("/users")
 def listar_usuarios():

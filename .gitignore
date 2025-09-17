@@ -2,6 +2,7 @@
 *# Ambiente virtual
 aula/
 venv/
+venv_antonio/
 .env
 
 # Cache do Python

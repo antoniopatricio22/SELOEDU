@@ -41,6 +41,51 @@ Manter a organização da estrutura do projeto conforme já trabalhado em sala d
 Recife, 11 de Setembro de 2025
 ---
 
+# 3 atividade-desenvolvimento-web
+```
+A DevwebSolutions está lançando a SELOEDU, uma aplicação web voltada para o gerenciamento de treinamentos. A equipe de desenvolvimento precisa estruturar as interfaces iniciais do sistema e a navegação entre elas, criando a base para futuras funcionalidades.
+
+O sistema deverá conter:
+
+Página inicial (home.html)
+
+Exibir a mensagem de boas-vindas: "Bem-vindo ao SELOEDU – Seu gerenciador de aplicação de treinamentos."
+Exibir a label "Faça login para acessar o painel."
+
+Exibir um botão com a label "Entrar"
+
+Página inicial (login.html)
+
+Exibir o título Login.
+Ter os campos E-mail e Senha.
+Disponibilizar o botão Entrar, que ao ser acionado redireciona para a página inicial (simulação de login neste momento).
+
+Requisitos
+
+Criar as interfaces (HTML) com as definições acima.
+Garantir a interação entre as telas: o botão da página inicial deve levar para o login, e o botão de login deve retornar para a home.
+Usar apenas HTML, CSS e Flask para renderizar as páginas.
+Não utilizar frameworks de estilização (Bootstrap, Tailwind, etc.).
+
+Entrega
+
+O projeto deve ser mantido no GitHub.
+A entrega no Classroom será o link do repositório GitHub contendo a estrutura abaixo.
+
+Estrutura do projeto
+
+SELOEDU/
+├── static/
+│   └── custom.css  
+├── templates/
+│   ├── auth/
+│   │   └── login.html
+│   └── home.html
+└── app.py
+
+```
+Recife, 17 de Setembro de 2025
+
 Atividades: Prof° **Jose Mauricio Matapi da Silva** 
 
 # Como rodar o projeto
