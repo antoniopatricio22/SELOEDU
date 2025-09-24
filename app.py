@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
+from routes.user import user_bp
+from routes.auth import auth_bp
 
 app = Flask(__name__)
+app.secret_key = '123'
 
 # Base de dados inicial em memória
 users = [
@@ -13,13 +16,17 @@ users = [
     {"id": "7", "nome": "Gabriel", "email": "gabriel@email.com", "perfil": "aluno", "status": "ativo"},
 ]
 
+#routes
+app.register_blueprint(user_bp, url_prefix='/user')
+app.register_blueprint(auth_bp, url_prefix='/auth')
+
 @app.route("/")
 def welcome():
-    return render_template("home.html")
+   return render_template("home.html")
 
-@app.route("/login")
-def login():
-    return render_template("auth/login.html")
+#@app.route("/login")
+#def login():
+#    return render_template("auth/login.html")
 
 @app.route("/users")
 def listar_usuarios():
@@ -36,9 +43,9 @@ def buscar_usuario(id):
 def adicionar_usuario():
     user = request.json
     for u in users:
-        if u["id"] == user.get("id"):
+        if u["id"] == user.get("id"): # type: ignore
             return jsonify({"erro": "ID já existente"}), 400
-    users.append(user)
+    users.append(user) # type: ignore
     return jsonify({"mensagem": "Usuário adicionado com sucesso", "usuario": user})
 
 @app.route("/delete_user/<id>", methods=["DELETE"])
@@ -54,7 +61,7 @@ def atualizar_usuario(id):
     novo_user = request.json
     for index, user in enumerate(users):
         if user["id"] == id:
-            users[index].update(novo_user)
+            users[index].update(novo_user) # type: ignore
             return jsonify({"mensagem": "Usuário atualizado com sucesso", "usuario": users[index]})
     return jsonify({"erro": "Usuário não encontrado"}), 404
 

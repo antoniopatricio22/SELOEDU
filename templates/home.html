@@ -12,7 +12,7 @@
         <p>Seu gerenciador de aplicação de treinamentos.</p>
         <p>Faça login para acessar o painel.</p>
         <div class="button-wrapper">
-            <button class="button-home" onclick="window.location.href='/login'">Entrar</button>
+            <button class="button-home" onclick="window.location.href='{{ url_for('auth.login') }}'">Entrar</button>
         </div>
     </div>
 </body>

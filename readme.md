@@ -19,6 +19,7 @@ PUT /update_user/{id}           Atualiza os dados de um usuário existente.
 
 
 Recife, 09 de Setembro de 2025
+
 ---
 
 # 2 atividade-desenvolvimento-web
@@ -38,7 +39,9 @@ Renderizar a tabela no users.html para a exibindo os campos: .
 Manter a organização da estrutura do projeto conforme já trabalhado em sala de aula.
 
 ```
+
 Recife, 11 de Setembro de 2025
+
 ---
 
 # 3 atividade-desenvolvimento-web
