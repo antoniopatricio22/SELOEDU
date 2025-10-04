@@ -1,69 +1,42 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template
 from routes.user import user_bp
 from routes.auth import auth_bp
+from models.extensions import db, login_manager
+from models.user import User
+import os
+
 
 app = Flask(__name__)
-app.secret_key = '123'
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET', 'dev-secret')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///seloedu.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Base de dados inicial em memória
-users = [
-    {"id": "1", "nome": "Alice", "email": "alice@email.com", "perfil": "admin", "status": "ativo"},
-    {"id": "2", "nome": "Bruno", "email": "bruno@email.com", "perfil": "aluno", "status": "inativo"},
-    {"id": "3", "nome": "Carlos", "email": "carlos@email.com", "perfil": "professor", "status": "ativo"},
-    {"id": "4", "nome": "Diana", "email": "diana@email.com", "perfil": "aluno", "status": "ativo"},
-    {"id": "5", "nome": "Eduardo", "email": "eduardo@email.com", "perfil": "admin", "status": "inativo"},
-    {"id": "6", "nome": "Fernanda", "email": "fernanda@email.com", "perfil": "professor", "status": "ativo"},
-    {"id": "7", "nome": "Gabriel", "email": "gabriel@email.com", "perfil": "aluno", "status": "ativo"},
-]
 
-#routes
+db.init_app(app)
+login_manager.init_app(app)
+
+# blueprints
 app.register_blueprint(user_bp, url_prefix='/user')
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
-@app.route("/")
+
+@app.route('/')
 def welcome():
-   return render_template("home.html")
+    return render_template('home.html')
 
-#@app.route("/login")
-#def login():
-#    return render_template("auth/login.html")
+#Criar master para a database
+with app.app_context():
+    db.create_all()
+    if not User.query.filter_by(email='admin@seloedu.com').first():
+        master = User(
+            nome='Admin Master',
+            email='admin@seloedu.com',
+            role='master'
+        )
+        master.set_password('123456') 
+        db.session.add(master)
+        db.session.commit()
 
-@app.route("/users")
-def listar_usuarios():
-    return render_template("users.html", usuarios=users)
 
-@app.route("/id_user/<id>")
-def buscar_usuario(id):
-    for user in users:
-        if user["id"] == id:
-            return jsonify(user)
-    return jsonify({"erro": "Usuário não encontrado"}), 404
-
-@app.route("/add_user", methods=["POST"])
-def adicionar_usuario():
-    user = request.json
-    for u in users:
-        if u["id"] == user.get("id"): # type: ignore
-            return jsonify({"erro": "ID já existente"}), 400
-    users.append(user) # type: ignore
-    return jsonify({"mensagem": "Usuário adicionado com sucesso", "usuario": user})
-
-@app.route("/delete_user/<id>", methods=["DELETE"])
-def deletar_usuario(id):
-    for user in users:
-        if user["id"] == id:
-            users.remove(user)
-            return jsonify({"mensagem": "Usuário removido com sucesso"})
-    return jsonify({"erro": "Usuário não encontrado"}), 404
-
-@app.route("/update_user/<id>", methods=["PUT"])
-def atualizar_usuario(id):
-    novo_user = request.json
-    for index, user in enumerate(users):
-        if user["id"] == id:
-            users[index].update(novo_user) # type: ignore
-            return jsonify({"mensagem": "Usuário atualizado com sucesso", "usuario": users[index]})
-    return jsonify({"erro": "Usuário não encontrado"}), 404
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

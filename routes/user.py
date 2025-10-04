@@ -1,22 +1,35 @@
-from flask import Blueprint, render_template, redirect, url_for, session
+from flask import Blueprint
+from flask_login import login_required
+from views import users as users_views
 
-user_bp = Blueprint('user', __name__, template_folder='templates')
+user_bp = Blueprint('users', __name__, template_folder='templates')
 
+'''
 @user_bp.route('/')
-def login():
-    return "Welcome to the User Page!"
-    #return render_template("auth/login.hrml")
+@login_required
+def index():
+    # simple dashboard redirect to protected dashboard
+    return redirect(url_for('users_views.dashboard'))
+'''
 
 @user_bp.route('/settings')
+@login_required
 def settings():
-    return "Welcome to the Settings Page!"
+    return users_views.settings()
 
 @user_bp.route('/dashboard')
+@login_required
 def dashboard():
-    name = session['email']
-    return render_template('dashboard.html', name=name)
+    return users_views.dashboard()
 
+@user_bp.route('/users')
+@login_required
+def users():
+    return users_views.users()
+
+'''
 @user_bp.before_request
-def check_autentication():
-    if 'token' not in session:
-        return redirect(url_for('auth.login'))
+def ensure_authenticated():
+    # login_required decorators already enforce auth, but keep hook for extra checks
+    pass
+'''

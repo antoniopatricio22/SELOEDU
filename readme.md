@@ -89,6 +89,72 @@ SELOEDU/
 ```
 Recife, 17 de Setembro de 2025
 
+---
+
+# 4 atividade-desenvolvimento-web
+```
+Autenticação de usuários na aplicação SELOEDU
+
+Descrição
+Configure o LoginManager no arquivo extensions.py e registre-o em app.py.
+Ajuste o modelo de usuário em models/user.py, implementando os métodos necessários para o Flask-Login.
+Crie/atualize as rotas em routes/auth.py (login, logout) e proteja as rotas de usuários em routes/user.py
+Implemente a lógica correspondente nas views: views/auth.py (validar credenciais e chamar login_user/logout_user) e views/users.py (operações de usuários autenticados).
+Add em templates/auth/login.html com um formulário simples de autenticação(caso já tenha manter).
+Add os arquivos base,home e dashboard.html em templates
+No app deve se manter:
+Registro das rotas(auth_bp e users_bp)
+      A criação do usuario master no contexto de execução
+            with app.app_context():
+                  db.create_all()
+                  if not User.query.filter_by(email="admin@seloedu.com").first():
+                        master = User(
+                        nome="Admin Master",
+                        email="admin@seloedu.com",
+                        role="master"
+                        )
+                  master.set_password("123456")  # senha inicial
+                  db.session.add(master)
+                  db.session.commit()
+As demais dependencia para o init do login_manager
+O usuário poderá realizar no sistema SELOEDU utilizando email e senha.
+O acesso a áreas protegidas (ex.: , listagem de usuários) será permitido apenas após autenticação.
+A sessão do usuário permanecerá ativa durante a navegação.
+Será possível com segurança através da opção de logout.
+Tentativas de acessar páginas restritas sem login redirecionarão automaticamente para a tela de autenticação.
+A aplicação contará com um (admin@seloedu.com / senha 123456) para uso imediato do sistema.
+
+Entrega
+
+O projeto deve ser mantido no GitHub.
+A entrega no Classroom será o link do repositório GitHub contendo a estrutura abaixo.
+
+Estrutura do projeto
+
+SELOEDU/
+├── models/
+│   ├── extensions.py
+│   └── user.py
+├── routes/
+│   ├── auth.py
+│   └── user.py
+├── Static/
+│   └── custom.css  
+├── templates/
+│   ├── auth/
+│   │   └── login.html
+│   ├── base.html
+│   ├── dashboard.html
+│   ├── home.html
+│   └── users.html
+├── views/
+│   ├── auth.py
+│   └── user.py
+└── app.py
+
+```
+Recife, 04 de Outubro de 2025
+
 Atividades: Prof° **Jose Mauricio Matapi da Silva** 
 
 # Como rodar o projeto
@@ -134,6 +200,6 @@ http://127.0.0.1:5000
 
 
 
-Recife, 09 de Setembro de 2025
+Recife, Outubro de 2025
 
 **Antônio Macena** [LinkedIn](https://www.linkedin.com/in/antonio-macena/)
