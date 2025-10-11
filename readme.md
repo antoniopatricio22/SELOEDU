@@ -202,6 +202,51 @@ seloedu/
 ```
 Recife, 08 de Outubro de 2025
 
+---
+
+# 6 atividade-desenvolvimento-web
+```
+Criação e Atualização de Perfil
+
+
+Estrutura atual do projeto
+seloedu/
+│
+├── routes/  
+│   └── users.py  
+├── models/ 
+│   ├── profile.py  
+│   └── users.py
+│
+├── templates/
+│   ├── base.html    
+│   ├── dashboard.html            
+│   ├── home.html                
+│   │
+│   ├── auth/
+│   │   └── login.html            
+│   │
+│   ├── users/
+│   │   ├── index.html            
+│   │   ├── form.html
+│   │   ├── profile.html             
+│   │   └── show.html  
+├── views/
+│   ├── auth.py  
+│   ├── profile.py                 
+│   └── users.py            
+│
+└── static/
+│    └── custom.css                
+│── app.py                      
+│── config.py                    
+│── requirements.txt
+│── .env                        
+│── extensions.py  
+
+```
+Recife, 11 de Outubro de 2025
+
 Atividades: Prof° **Jose Mauricio Matapi da Silva** 
 
 # Como rodar o projeto
