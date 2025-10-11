@@ -207,17 +207,19 @@ Recife, 08 de Outubro de 2025
 # 6 atividade-desenvolvimento-web
 ```
 Criação e Atualização de Perfil
+Implementação de models/profile.py , views/profile.py e /users/profile.html
+Atualização de routes/users.py
 
 
 Estrutura atual do projeto
 seloedu/
 │
 ├── routes/  
-│   └── users.py  
+│   ├── auth.py 
+│   └── users.py
 ├── models/ 
 │   ├── profile.py  
 │   └── users.py
-│
 ├── templates/
 │   ├── base.html    
 │   ├── dashboard.html            
