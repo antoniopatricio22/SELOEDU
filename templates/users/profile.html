@@ -20,7 +20,14 @@
             <label for="foto">Foto:</label>
             <input type="file" id="foto" name="foto">
             {% if profile and profile.foto %}
-                <img src="{{ url_for('static', filename=profile.foto) }}" alt="Foto do perfil" style="max-width: 150px; display: block; margin-top: 10px;">
+                {# Ensure we pass a path relative to static/ to url_for. profile.foto is stored as 'uploads/filename' #}
+                {% set foto_path = profile.foto.replace('\\', '/') %}
+                {# If foto_path was stored with a leading 'static/', remove it to avoid /static/static/... #}
+                {% if foto_path.startswith('static/') %}
+                    {# 'static/' has length 7 #}
+                    {% set foto_path = foto_path[7:] %}
+                {% endif %}
+                <img src="{{ url_for('static', filename=foto_path) }}" alt="Foto do perfil" style="max-width: 150px; display: block; margin-top: 10px;">
             {% endif %}
         </div>
         <div class="input-group">
