@@ -1,19 +1,22 @@
 from flask import Flask, render_template
 from routes.users import user_bp
 from routes.auth import auth_bp
-from extensions import db, login_manager
+from extensions import db, login_manager, mail
 from models.users import User
 from config import DevelopmentConfig
 
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig)
 
+# load configuration before initializing extensions
+
+
+app.config.from_object(DevelopmentConfig)
 db.init_app(app)
 login_manager.init_app(app)
+mail.init_app(app)
 
 # blueprints
-# register users under /users
 app.register_blueprint(user_bp, url_prefix='/users')
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
@@ -22,7 +25,7 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 def welcome():
     return render_template('home.html')
 
-
+#master
 with app.app_context():
     db.create_all()
     if not User.query.filter_by(email='admin@seloedu.com').first():

@@ -1,9 +1,11 @@
 
-## SELOEDU 
-Este projeto foi construido usando Python e Flask, para  a implementação inicial, seguindo o especificado nas atividades.
+## SELOEDU
+
+Este projeto foi construido usando Python e Flask, para  a implementação inicial, seguindo o especificado nas atividades
 ---
 
 # 1 atividade-desenvolvimento-web
+
 ```
 Nesta atividade, você irá implementar as rotas iniciais da aplicação SELOEDU, iniciaremos  pelo gerenciamento de usuários.
 
@@ -17,12 +19,12 @@ DELETE /delete_user/{id}        Remove usuário pelo ID.
 PUT /update_user/{id}           Atualiza os dados de um usuário existente.
 ```
 
-
 Recife, 09 de Setembro de 2025
 
 ---
 
 # 2 atividade-desenvolvimento-web
+
 ```
 Nesta atividade, você deverá atualizar a aplicação para criar uma nova página users.html que exiba uma tabela com informações dos usuários. O foco é apenas na renderização dos dados, sem estilização nesta etapa. Para isso, siga as orientações:
 
@@ -45,6 +47,7 @@ Recife, 11 de Setembro de 2025
 ---
 
 # 3 atividade-desenvolvimento-web
+
 ```
 A DevwebSolutions está lançando a SELOEDU, uma aplicação web voltada para o gerenciamento de treinamentos. A equipe de desenvolvimento precisa estruturar as interfaces iniciais do sistema e a navegação entre elas, criando a base para futuras funcionalidades.
 
@@ -79,19 +82,21 @@ Estrutura do projeto
 
 SELOEDU/
 ├── static/
-│   └── custom.css  
+    └── custom.css  
 ├── templates/
-│   ├── auth/
-│   │   └── login.html
-│   └── home.html
+    ├── auth/
+        └── login.html
+    └── home.html
 └── app.py
 
 ```
+
 Recife, 17 de Setembro de 2025
 
 ---
 
 # 4 atividade-desenvolvimento-web
+
 ```
 Autenticação de usuários na aplicação SELOEDU
 
@@ -133,31 +138,33 @@ Estrutura do projeto
 
 SELOEDU/
 ├── models/
-│   ├── extensions.py
-│   └── user.py
+    ├── extensions.py
+    └── user.py
 ├── routes/
-│   ├── auth.py
-│   └── user.py
+    ├── auth.py
+    └── user.py
 ├── Static/
-│   └── custom.css  
+    └── custom.css  
 ├── templates/
-│   ├── auth/
-│   │   └── login.html
-│   ├── base.html
-│   ├── dashboard.html
-│   ├── home.html
-│   └── users.html
+    ├── auth/
+        └── login.html
+    ├── base.html
+    ├── dashboard.html
+    ├── home.html
+    └── users.html
 ├── views/
-│   ├── auth.py
-│   └── user.py
+    ├── auth.py
+    └── user.py
 └── app.py
 
 ```
+
 Recife, 04 de Outubro de 2025
 
 ---
 
 # 5 atividade-desenvolvimento-web
+
 ```
 Atualização de estrutura e crud users seloedu
 
@@ -171,28 +178,28 @@ Estrutura atual do projeto
 seloedu/
 │
 ├── routes/  
-│   └── users.py  
+    └── users.py  
 ├── models/  
 │   └── users.py
-│
+ 
 ├── templates/
-│   ├── base.html    
-│   ├── dashboard.html            
-│   ├── home.html                
-│   │
-│   ├── auth/
-│   │   └── login.html            
-│   │
-│   ├── users/
-│   │   ├── index.html            
-│   │   ├── form.html            
-│   │   └── show.html  
+    ├── base.html    
+    ├── dashboard.html            
+    ├── home.html                
+     
+    ├── auth/
+        └── login.html            
+     
+    ├── users/
+        ├── index.html            
+        ├── form.html            
+        └── show.html  
 ├── views/
-│   ├── auth.py                  
-│   └── users.py            
-│
+    ├── auth.py                  
+    └── users.py            
+ 
 └── static/
-│    └── custom.css                
+     └── custom.css                
 │── app.py                      
 │── config.py                    
 │── requirements.txt
@@ -200,11 +207,13 @@ seloedu/
 │── extensions.py  
 
 ```
+
 Recife, 08 de Outubro de 2025
 
 ---
 
 # 6 atividade-desenvolvimento-web
+
 ```
 Criação e Atualização de Perfil
 Implementação de models/profile.py , views/profile.py e /users/profile.html
@@ -215,31 +224,31 @@ Estrutura atual do projeto
 seloedu/
 │
 ├── routes/  
-│   ├── auth.py 
-│   └── users.py
+    ├── auth.py 
+    └── users.py
 ├── models/ 
-│   ├── profile.py  
-│   └── users.py
+    ├── profile.py  
+    └── users.py
 ├── templates/
-│   ├── base.html    
-│   ├── dashboard.html            
-│   ├── home.html                
-│   │
-│   ├── auth/
-│   │   └── login.html            
-│   │
-│   ├── users/
-│   │   ├── index.html            
-│   │   ├── form.html
-│   │   ├── profile.html             
-│   │   └── show.html  
+    ├── base.html    
+    ├── dashboard.html            
+    ├── home.html                
+     
+    ├── auth/
+        └── login.html            
+     
+    ├── users/
+        ├── index.html            
+        ├── form.html
+        ├── profile.html             
+        └── show.html  
 ├── views/
-│   ├── auth.py  
-│   ├── profile.py                 
-│   └── users.py            
+    ├── auth.py  
+    ├── profile.py                 
+    └── users.py            
 │
 └── static/
-│    └── custom.css                
+     └── custom.css                
 │── app.py                      
 │── config.py                    
 │── requirements.txt
@@ -247,9 +256,67 @@ seloedu/
 │── extensions.py  
 
 ```
+
 Recife, 11 de Outubro de 2025
 
-Atividades: Prof° **Jose Mauricio Matapi da Silva** 
+---
+
+# 7 atividade-desenvolvimento-web
+
+```
+Atividade Prática - Redefinição de Senha (Flask + MailHog)
+Nesta atividade prática, você vai implementar **o fluxo completo de redefinição de senha** , utilizando **tokens temporários e envio de e-mail local com o MailHog**.
+Ao final
+- Gerar e validar tokens seguros;
+- Enviar e-mails de recuperação de senha;
+- Atualizar a senha no banco de dados;
+- Visualizar o envio de e-mails localmente sem precisar de servidor real.
+
+
+Estrutura atual do projeto
+seloedu/
+│
+├── routes/  
+    ├── auth.py 
+    └── users.py
+├── models/ 
+    ├── profile.py  
+    └── users.py
+├── templates/
+    ├── base.html    
+    ├── dashboard.html            
+    ├── home.html                
+    │
+    ├── auth/
+        ├── forgot_password.html            
+        ├── login.html
+        └── reset_password.html            
+    
+    ├── users/
+        ├── index.html            
+        ├── form.html
+        ├── profile.html             
+        └── show.html  
+├── utils/                 
+    └── token_utils.py     
+├── views/
+    ├── auth.py  
+    ├── profile.py                 
+    └── users.py            
+│
+└── static/
+     └── custom.css                
+│── app.py                      
+│── config.py                    
+│── requirements.txt
+│── .env                        
+│── extensions.py  
+
+```
+
+Recife, 28 de Outubro de 2025
+
+Atividades: Prof° **Jose Mauricio Matapi da Silva**
 
 # Como rodar o projeto
 
@@ -260,7 +327,7 @@ git clone https://github.com/<SEU_USUARIO>/seloedu-api.git
 cd seloedu-api
 ```
 
-# Crie e ative um ambiente virtual:
+# Crie e ative um ambiente virtual
 
 ```
 python -m venv aula
@@ -270,13 +337,13 @@ source aula/bin/activate
 aula\Scripts\activate
 ```
 
-# Instale as dependências:
+# Instale as dependências
 
 ```
 pip install -r requirements.txt
 ```
 
-# Rode o servidor:
+# Rode o servidor
 
 ```
 python app.py ou
@@ -285,14 +352,9 @@ flask run
 
 ---
 
+## A API estará disponível em
 
-## A API estará disponível em:
- 
-http://127.0.0.1:5000
-
-
-
-
+<http://127.0.0.1:5000>
 
 Recife, Outubro de 2025
 

@@ -155,6 +155,59 @@ footer p {
     display: flex;
     justify-content: center;
     margin-top: 25px;
+    gap: 10px;
+}
+
+/* Password Reset Buttons */
+.button-password-reset {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #0828e0 0%, #0066ff 100%);
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(8, 40, 224, 0.3);
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.button-password-reset:hover {
+    background: linear-gradient(135deg, #0066ff 0%, #0828e0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(8, 40, 224, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.button-forgot {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #0828e0 0%, #0066ff 100%);
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 180px;
+    margin-top: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(8, 40, 224, 0.3);
+    text-decoration: none;
+    text-align: center;
+}
+
+.button-forgot:hover {
+    background: linear-gradient(135deg, #0066ff 0%, #0828e0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(8, 40, 224, 0.4);
+    text-decoration: none;
+    color: white;
 }
 
 /* Login Page */
@@ -164,7 +217,7 @@ footer p {
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(8, 40, 224, 0.15);
     width: 100%;
-    max-width: 420px;
+    max-width: 480px;
     text-align: left;
     display: flex;
     flex-direction: column;

@@ -12,7 +12,10 @@
             <label for="password">Senha</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit" class="button-login">Entrar</button>
+        <div class="button-wrapper">
+            <button type="submit" class="button-login">Entrar</button>
+            <a href="{{ url_for('auth.forgot_password') }}" class="button-forgot">Esqueci Senha</a>
+        </div>
     </form>
 </div>
 {% endblock %}
