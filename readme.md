@@ -316,6 +316,65 @@ seloedu/
 
 Recife, 28 de Outubro de 2025
 
+# 8 atividade-desenvolvimento-web
+
+```
+Atividade prática Criação da Tabela Treinamento
+Implementar a tabela Treinamento no sistema SELOEDU, criando o modelo, rotas, view e template HTML para exibição e cadastro de treinamentos.
+
+Deve-se manter o mesmo padrão já seguido nas demais tabelas.
+Apenas o usuário com perfil de coordenador poderá cadastrar novos treinamentos.
+As páginas de renderização não devem conter estilização.
+
+
+Estrutura atual do projeto
+seloedu/
+│
+├── routes/  
+    ├── auth.py
+    ├── treinamento.py 
+    └── users.py
+├── models/ 
+    ├── profile.py
+    ├── treinamento.py 
+    └── users.py
+├── templates/
+    ├── base.html    
+    ├── dashboard.html            
+    ├── home.html                
+    │
+    ├── auth/
+        ├── forgot_password.html            
+        ├── login.html
+        └── reset_password.html            
+    ├── treinamento/
+        ├── listar.html            
+        └── novo.html
+    ├── users/
+        ├── index.html            
+        ├── form.html
+        ├── profile.html             
+        └── show.html  
+├── utils/                 
+    └── token_utils.py     
+├── views/
+    ├── auth.py  
+    ├── profile.py
+    ├── treinamento_view.py                
+    └── users.py            
+│
+└── static/
+     └── custom.css                
+│── app.py                      
+│── config.py                    
+│── requirements.txt
+│── .env                        
+│── extensions.py  
+
+```
+
+Recife, 02 de Novembro de 2025
+
 Atividades: Prof° **Jose Mauricio Matapi da Silva**
 
 # Como rodar o projeto
@@ -356,6 +415,6 @@ flask run
 
 <http://127.0.0.1:5000>
 
-Recife, Outubro de 2025
+Recife, Novembro de 2025
 
 **Antônio Macena** [LinkedIn](https://www.linkedin.com/in/antonio-macena/)
