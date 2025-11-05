@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash, current_app
+from utils.uploads import save_image, remove_file_safe
 from flask_login import login_required, current_user
 from models.profile import Profile
 from extensions import db
@@ -22,6 +23,21 @@ def profile():
         profile.instituicao = instituicao
         profile.cargo = cargo
         profile.bio = bio
+        # Novo tratamento de imagem
+        if foto and foto.filename:
+            # Remove antigos se existirem
+            remove_file_safe(profile.foto)
+            remove_file_safe(profile.foto_thumb)
+
+            filename, thumb_name = save_image(file_storage=foto, user_name=current_user.nome)
+            profile.foto = filename
+            profile.foto_thumb = thumb_name
+
+        elif not profile.foto_thumb:
+            # Se não houver thumb (e nenhuma foto enviada), gera avatar padrão
+            _, thumb_name = save_image(user_name=current_user.nome)
+            profile.foto_thumb = thumb_name
+        '''
         if foto and foto.filename:
             # Ensure uploads directory exists
             uploads_rel_dir = os.path.join('static', 'uploads')
@@ -34,6 +50,8 @@ def profile():
             foto.save(save_abs_path)
             # store path relative to the `static` folder so templates can do url_for('static', filename=...)
             profile.foto = os.path.join('uploads', safe_name).replace('\\', '/')
+        '''
+
         db.session.commit()
         flash('Perfil atualizado com sucesso!', 'success')
         return redirect(url_for('users.profile'))

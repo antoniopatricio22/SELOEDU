@@ -5,6 +5,7 @@ from routes.treinamento import treinamento_bp
 from extensions import db, login_manager, mail
 from models.users import User
 from config import DevelopmentConfig
+import os
 
 
 app = Flask(__name__)
@@ -13,6 +14,9 @@ app = Flask(__name__)
 
 
 app.config.from_object(DevelopmentConfig)
+os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+os.makedirs("instance", exist_ok=True)
+
 db.init_app(app)
 login_manager.init_app(app)
 mail.init_app(app)

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Perfil do Usuário{% endblock %}
+{% block content %}
+<div class="users-container">
+    <h1 class="users-header">Meu Perfil</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" value="{{ profile.telefone if profile else '' }}">
+        </div>
+        <div class="input-group">
+            <label for="instituicao">Instituição:</label>
+            <input type="text" id="instituicao" name="instituicao" value="{{ profile.instituicao if profile else '' }}">
+        </div>
+        <div class="input-group">
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" value="{{ profile.cargo if profile else '' }}">
+        </div>
+        <div class="input-group">
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" name="foto">
+            {% if profile and profile.foto %}
+                {# Ensure we pass a path relative to static/ to url_for. profile.foto is stored as 'uploads/filename' #}
+                {% set foto_path = profile.foto.replace('\\', '/') %}
+                {# If foto_path was stored with a leading 'static/', remove it to avoid /static/static/... #}
+                {% if foto_path.startswith('static/') %}
+                    {# 'static/' has length 7 #}
+                    {% set foto_path = foto_path[7:] %}
+                {% endif %}
+                <img src="{{ url_for('static', filename=foto_path) }}" alt="Foto do perfil" style="max-width: 150px; display: block; margin-top: 10px;">
+            {% endif %}
+        </div>
+        <div class="input-group">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4">{{ profile.bio if profile else '' }}</textarea>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="button-home">Salvar Alterações</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
