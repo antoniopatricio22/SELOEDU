@@ -8,8 +8,8 @@ class Config:
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///seloedu.db')
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-	UPLOAD_FOLDER = str(BASE_DIR / "static" /"uploads")
-	MAX_CONTENT_LENGHT = 4 * 1024 * 1024 # 4 MB por Upload
+	UPLOAD_FOLDER = str(BASE_DIR / "static" / "uploads")
+	MAX_CONTENT_LENGTH = 4 * 1024 * 1024  # 4 MB por Upload
 	ALLOWED_IMAGE_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 	THUMBNAIL_SIZE = (200, 200)
 	

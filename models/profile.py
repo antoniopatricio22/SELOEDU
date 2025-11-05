@@ -8,8 +8,7 @@ class Profile(db.Model):
     instituicao = db.Column(db.String(100))
     cargo = db.Column(db.String(100))
     foto = db.Column(db.String(255))
-    foto_thumb = db.Column(db.String(255)) #-----
+    foto_thumb = db.Column(db.String(255))
     bio = db.Column(db.Text)
 
     user = db.relationship('User', back_populates='profile')
-    

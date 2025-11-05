@@ -375,6 +375,63 @@ seloedu/
 
 Recife, 02 de Novembro de 2025
 
+# 9 atividade-desenvolvimento-web
+
+```
+Atividade prática Atualizar o Upload de Imagens para Perfil.
+
+
+Estrutura atual do projeto
+seloedu/
+│
+├── forms/   
+    └── profile_form.py
+├── routes/  
+    ├── auth.py
+    ├── treinamento.py 
+    └── users.py
+├── models/ 
+    ├── profile.py
+    ├── treinamento.py 
+    └── users.py
+├── templates/
+    ├── base.html    
+    ├── dashboard.html            
+    ├── home.html                
+    │
+    ├── auth/
+        ├── forgot_password.html            
+        ├── login.html
+        └── reset_password.html            
+    ├── treinamento/
+        ├── listar.html            
+        └── novo.html
+    ├── users/
+        ├── index.html            
+        ├── form.html
+        ├── profile.html             
+        └── show.html  
+├── utils/    
+    ├── uploads.py              
+    └── token_utils.py     
+├── views/
+    ├── auth.py  
+    ├── profile.py
+    ├── treinamento_view.py                
+    └── users.py            
+│
+└── static/
+     └── custom.css                
+│── app.py                      
+│── config.py                    
+│── requirements.txt
+│── .env                        
+│── extensions.py  
+
+```
+
+Recife, 05 de Novembro de 2025
+
 Atividades: Prof° **Jose Mauricio Matapi da Silva**
 
 # Como rodar o projeto
